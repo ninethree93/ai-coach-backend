@@ -10,3 +10,5 @@ server/api/memories/
 # 忽略系统文件
 .DS_Store
 Thumbs.db
+.vercel
+.env*.local

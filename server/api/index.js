@@ -159,6 +159,20 @@ app.get('/api/health', (req, res) => {
     res.json({ status: '在线', service: 'AI教练后端', timestamp: new Date().toISOString() });
 });
 
+// --- 添加根路径路由 ---
+app.get('/', (req, res) => {
+    res.json({
+        message: '🎯 AI 教练后端服务已上线！',
+        endpoints: {
+            '聊天接口': 'POST /api/chat',
+            '健康检查': 'GET /api/health',
+            '当前状态': 'GET /'
+        },
+        timestamp: new Date().toISOString(),
+        deployed_on: 'Vercel'
+    });
+});
+
 // --- 5. 启动本地开发服务器 ---
 // 注意：这段代码在部署到Vercel时不会运行，Vercel会直接使用 `app`。
 if (process.env.NODE_ENV !== 'production') {
